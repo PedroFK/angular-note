@@ -1,0 +1,64 @@
+<h2>Control Flow</h2>
+
+<!-- Nova Forma -->
+@if (isTrue) {
+    Sim é 1
+    <p>Pedro</p>
+} @else {
+    nao é
+}
+
+<!-- Forma Antiga -->
+
+<ng-container *ngIf="isTrue">
+    <p>Pedro aparece</p>
+</ng-container>
+
+<ng-template *ngIf="isFalse">
+    <p>Pedro não aparece</p>
+</ng-template>
+
+
+<h2>IF, FOR</h2>
+
+<!-- Nova Forma -->
+@if(loadingData$ | async; as data) {
+    <ul>
+        @for(item of data; track item) {
+            <li> item - {{item}} </li>
+        }
+    </ul>
+} @else {
+    <p>Carregando...</p>
+}
+
+<!-- Forma Antiga -->
+<ng-container *ngIf="loadingData$ | async as data; else loading">
+<p>{{data}}</p>
+</ng-container>
+<ng-template #loading> <p>Carregando...</p> </ng-template>
+
+<hr>
+
+<h3>Participantes</h3>
+<ul id="list">
+    @for (item of itens; track item.name) {
+        <li> {{item.name }} </li>
+    } @empty {
+        <li> Não contem valores </li>
+    }
+</ul>
+
+<hr>
+<h3>Switch Case</h3>
+@switch (switchCondition) {
+    @case ('A') {
+        <p>A letra é A</p>
+    }
+    @case ('B') {
+        <p>A letra é B</p>
+    }
+    @default {
+    <p>Dados não foram encotrados</p>
+    }
+}

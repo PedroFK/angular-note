@@ -1,0 +1,10 @@
+:host {
+    #list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    #list li::before {
+        content: none; /* ou content: ""; */
+    }
+}

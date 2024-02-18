@@ -1,0 +1,25 @@
+// Host faz com que o stilo influencie apenas no componente atual, não nos filhos.
+
+:host {
+    p {
+        color: red;
+    }
+}
+
+
+// Host-context => permite que mudemos o estilo do host com base na class do component
+
+// Ex.: se a class do component 
+:host-context(.dark) {
+    p {
+        color: aquamarine;
+    }
+}
+
+// É usado para alterar propriedade de component pai
+::ng-deep {
+    h3 {
+        color: black;
+    }
+}
+

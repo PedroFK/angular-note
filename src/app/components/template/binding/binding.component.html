@@ -1,0 +1,52 @@
+<h1>Curso de Angular</h1>
+    <h2>Components</h2>
+<p>binding works!</p>
+
+<p>Text interpolation!</p>
+
+{{ prop }}
+{{ example }}
+<br>
+<p [attr.title]="soma">Exempo de soma:</p>
+{{ age }}
+
+<hr>
+
+<h2>Class and Style binding</h2>
+<p [class.background-red]="age < 22" [class.background-blue]="age > 22">{{testeDeCor}}</p>
+
+<hr>
+
+<h2>Property Binding</h2>
+<!--Preciso adicionar [] para que a propriedade isDisable seja lida de dentro da class-->  
+<button [disabled]="isDisable">Teste</button>
+<!--<img [src]="srcValue" [alt]="prop">-->
+
+<p [style.text-decoration]="isTextDecorated">asdasd</p>
+
+<hr>
+
+<h2>Event Binding</h2>
+
+<button (click)="sub()">-</button>
+<button (click)="sum()">+</button>
+<input (keydown.shift.t)="onKeyDown($event)">
+
+<div style="background-color: gray; width: 30px; height: 30px; margin-top: 30px;"
+    (mousemove)="onMouseMove($event)"
+></div>
+
+<hr>
+
+<h2> Two-Way Binding </h2>
+<p>Utilizando ngModel, não vou dar exemplo</p>
+<p>Ex: atualizar o name porm meio de um input e as bindings atualizarem de forma automática</p>
+
+<hr>
+
+<h2>Diretivas de Atributos</h2>
+<div [ngClass]="{'background-red': isDisable}">Classes condicionais</div>
+<div [ngClass]="{'background-blue': isEnable}">Classes condicionais</div>
+<div [ngStyle]="{
+    color: age>=21 ? 'green' : 'brown'
+}">Estilo Dinâmico</div>
