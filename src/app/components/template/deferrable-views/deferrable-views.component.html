@@ -1,1 +1,18 @@
 <h2>Deferrable Views</h2>
+<button (click)="isTrue = true"> Ativa TRUE para component</button>
+<!--
+    on - especifica uma condição de acionador usando um acionador da lista
+    (idle, timer, viewport, interaction, hover, immediate, prefetch)
+
+    when - especifica uma condição imperativa. Quando a expressão se torna verdadeira o espaço reservado é trocado pelo conteúdo.
+-->
+@defer(when isTrue) {
+    <app-new/>
+} @placeholder(minimum 3s) {
+    <p>Vai aparecer antes de carregar o documento</p>
+} @loading(after 150ms; minimum 5s) {
+    <!--Se passar de 150ms para carregar, vai esperar 5s para carregar o component-->
+    <p>Esou carregando...</p>
+} @error {
+    <p>Loading failed</p>
+}
